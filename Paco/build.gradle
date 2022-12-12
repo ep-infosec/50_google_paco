@@ -1,0 +1,115 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        google()
+
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.2.2"
+    }
+}
+
+allprojects {
+    repositories {
+
+        mavenCentral()
+        google()
+    }
+}
+
+apply plugin: 'com.android.application'
+
+/**
+ * This dependencies block includes any dependencies for the project itself. The
+ * following line includes all the JAR files in the libs directory.
+ */
+dependencies {
+    // workmanager support
+    implementation 'androidx.work:work-runtime:2.6.0'
+    implementation project(':Shared')
+    implementation 'com.google.guava:guava:16.0.1'
+    implementation 'com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    //apk 'joda-time:joda-time:2.9.3'
+    //compile 'rhino:js:1.7R2'
+    implementation files('libs/js.jar')
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
+    implementation files('libs/antlr-runtime-3.2.jar')
+    //compile 'org.antlr:antlr:3.2'
+    implementation files('libs/jackson-all-1.9.11.jar')
+    //    compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.11'
+    //    compile 'org.codehaus.jackson:jackson-core-asl:1.9.11'
+    implementation files('libs/logback-android-1.1.1-6.jar')
+    //compile 'com.github.tony19:logback-android-core:1.1.1-6'
+    implementation files('libs/slf4j-api-1.7.21.jar')
+    //compile 'org.slf4j:slf4j-api:1.7.21'
+    //    compile 'org.slf4j:slf4j-api:1.7.21'
+    //    compile 'com.github.tony19:logback-android-core:1.1.1-6'
+    //    compile('com.github.tony19:logback-android-classic:1.1.1-6') {
+    //        // workaround issue #73
+    //        exclude group: 'com.google.android', module: 'android'
+    //    }
+    //compile 'com.github.jsqlparser:jsqlparser:0.9.6'
+    implementation files('libs/Android-Languages.jar')
+    implementation 'androidx.drawerlayout:drawerlayout:1.1.1'
+    //androidTestCompile 'junit:junit:4.10'
+
+
+    }
+
+android {
+    compileSdkVersion 30
+    buildTypes {
+        release {
+            minifyEnabled false
+            lintOptions {
+                disable 'MissingTranslation'
+                abortOnError false
+            }
+        }
+        debug {
+            minifyEnabled false
+            lintOptions {
+                disable 'MissingTranslation'
+                abortOnError false
+            }
+        }
+    }
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+
+        // Move the tests to tests/java, tests/res, etc...
+        //instrumentTest.setRoot('tests')
+
+        /**
+         * Move the build types to build-types/<type>
+         * For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
+         * This moves them out of them default location under src/<type>/... which would
+         * conflict with src/ being used by the main source set.
+         * Adding new build types or product flavors should be accompanied
+         * by a similar customization.
+         */
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+    }
+    packagingOptions {
+        pickFirst 'META-INF/license.txt'
+        pickFirst 'META-INF/LICENSE'
+    }
+    defaultConfig {
+        applicationId "com.pacoapp.paco"
+        minSdkVersion 26
+        targetSdkVersion 30
+        versionCode 173
+        versionName "4.3.3"
+    }
+}

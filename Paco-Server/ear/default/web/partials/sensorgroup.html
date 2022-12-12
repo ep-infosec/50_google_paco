@@ -1,0 +1,34 @@
+<div class="dialog-demo-content" layout="row" layout-wrap="" layout-margin="">
+<md-dialog aria-label="Find Sensor" layout-padding layout-margin>
+<!-- <md-toolbar> -->
+       <div class="md-toolbar-tools">
+         <h4>Choose Sensor Type</h4>
+       <span flex></span>
+      </div> 
+     
+ <!--    </md-toolbar> -->
+ <md-dialog-content>
+
+ 	<md-button name = "APPUSAGE_ANDROID" ng-click="addSensorGroup('APPUSAGE_ANDROID')" class="md-primary">
+      AppUsage Android
+    </md-button>
+     <md-button name = "PHONESTATUS" ng-click="addSensorGroup('PHONESTATUS')" class="md-primary">
+      PhoneStatus
+    </md-button>
+     <md-button name = "APPUSAGE_DESKTOP" ng-click="addSensorGroup('APPUSAGE_DESKTOP')" class="md-primary">
+         AppUsage Desktop
+     </md-button>
+     <md-button name = "APPUSAGE_SHELL" ng-click="addSensorGroup('APPUSAGE_SHELL')" class="md-primary">
+         AppUsage Shell
+     </md-button>
+     <md-button name = "IDE_IDEA_USAGE" ng-click="addSensorGroup('IDE_IDEA_USAGE')" class="md-primary">
+         Idea-based IDE Usage
+     </md-button>
+
+     </md-dialog-content>
+   <md-dialog-actions>
+    <md-button ng-click="closeDialog()" class="md-primary">Cancel</md-button>
+  </md-dialog-actions>
+</md-dialog>
+
+</div>

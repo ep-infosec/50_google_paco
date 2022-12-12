@@ -1,0 +1,10 @@
+application: quantifiedself
+version: 148
+runtime: python
+api_version: 1
+
+handlers:
+- url: .*
+  script: main.py
+builtins:
+- remote_api: on

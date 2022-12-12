@@ -1,0 +1,47 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.2.2"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+/**
+ * This dependencies block includes any dependencies for the project itself. The
+ * following line includes all the JAR files in the libs directory.
+ */
+dependencies {
+    //compile fileTree(dir: 'lib', include: ['*.jar'])
+    implementation 'com.google.guava:guava:16.0.1'
+    compile 'joda-time:joda-time:2.9.3'
+    compile files('lib/jackson-all-1.9.11.jar')
+    //    compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.11'
+    //    compile 'org.codehaus.jackson:jackson-core-asl:1.9.11'
+    //compile 'rhino:js:1.7R2'
+    //compile files('lib/js.jar')
+    compile 'com.github.jsqlparser:jsqlparser:0.9.6'
+    compile files('lib/json-1.5.jar')
+    testCompile 'junit:junit:4.10'
+}
+
+sourceSets {
+    main {
+        java.srcDirs = ['src','src_non_j2objc']
+    }
+}
+

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dispatch-entries>
+  
+  <dispatch>
+      <url>*/_ah/pipeline*</url>
+      <module>mapreduce</module>
+  </dispatch>
+  <dispatch>
+      <url>*/migration/*</url>
+      <module>migration</module>
+  </dispatch>
+  <dispatch>
+      <url>*/backendReportJobExecutor*</url>
+      <module>reportworker</module>
+  </dispatch>
+  <dispatch>
+      <url>*/phoneSessions*</url>
+      <module>reportworker</module>
+  </dispatch>
+  
+</dispatch-entries>
